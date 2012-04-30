@@ -14,7 +14,7 @@
 				if(preg_match('/^'.$prefix.'\_(\w+)$/',$action,$matches)) {
 					$fn = "ajax_{$matches[1]}";
 					if((int)method_exists($this,$fn)) {
-						call_user_func_array( array( $this, $fn ), array() );
+						call_user_func_array( array( $this, $fn ), $this->RequestHandler->params['pass']);
 						exit();
 					}
 					
